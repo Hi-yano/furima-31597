@@ -1,24 +1,60 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column        | Type    | Options     |
+| ------------- | ------- | ----------- |
+| email         | string  | null: false |
+| password      | string  | null: false |
+| name          | string  | null: false |
+| furigana      | string  | null: false |
+| date_of_birth | integer | null: false |
+| nickname      | string  | null: false |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :products
+- has_many :orders
+- has_one :buyer
 
-* Configuration
+## products テーブル
 
-* Database creation
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| product_name  | string     | null: false                    |
+| product_price | integer    | null: false                    |
+| status        | text       | null: false                    |
+| category      | string     | null: false                    |
+| user_id       | references | null: false, foreign_key: true |
+| area          | string     | null: false                    |
+| shipping_date | integer    | null: false                    |
 
-* Database initialization
+### Association
+- belongs_to :user
+- has_one : order
 
-* How to run the test suite
+## orders テーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| price_id    | reference  | null: false, foreign_key: true |
+| user_id     | reference  | null: false, foreign_key: true |
 
-* Deployment instructions
+### Association
 
-* ...
+- belongs_to :user
+- belongs_to :product
+- has_one :buyer
+
+## buyers テーブル
+
+| Column          | Type      | Options                        |
+| --------------- | --------- | ------------------------------ |
+| address         | text      | null: false                    |
+| phone_number    | integer   | null: false                    |
+| user_id         | reference | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :order
