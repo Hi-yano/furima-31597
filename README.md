@@ -20,16 +20,17 @@
 
 ## products テーブル
 
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| product_name  | string     | null: false                    |
-| product_price | integer    | null: false                    |
-| status_id     | integer    | null: false                    |
-| category_id   | integer    | null: false                    |
-| user          | references | null: false, foreign_key: true |
-| area          | string     | null: false                    |
-| shipping_date | date       | null: false                    |
-| explanation   | text       | null: false                    |
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| product_name     | string     | null: false                    |
+| product_price    | integer    | null: false                    |
+| status_id        | integer    | null: false                    |
+| category_id      | integer    | null: false                    |
+| user             | references | null: false, foreign_key: true |
+| area_id          | string     | null: false                    |
+| shipping_date_id | integer    | null: false                    |
+| explanation      | text       | null: false                    |
+| postage_id       | integer    | null: false                    |
 
 ### Association
 - belongs_to :user
@@ -56,7 +57,7 @@
 | prefectures_id | integer | null: false |
 | municipality   | string  | null: false |
 | address        | string  | null: false |
-| building_name  | string  | null: false |
+| building_name  | string  |             |
 | phone_number   | integer | null: false |
 
 ### Association
