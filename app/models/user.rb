@@ -12,9 +12,11 @@ class User < ApplicationRecord
     validates :last_name_kana
     validates :first_name_kana
   end
-  validates :date_of_birth, presence: true
-  validates :nickname, presence: true
-
+  with_options presence: true do
+    validates :date_of_birth
+    validates :nickname
+  end
+  
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
   validates_format_of :password, with: PASSWORD_REGEX
 
