@@ -8,8 +8,8 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.integer :status_id,        null: false
       t.integer :postage_id,       null: false
       t.integer :area_id,          null: false
-      t.integer :shipping_date_id, null: false
-      t.integer :product_price,    null: false
+      t.integer :shipping_id,      null: false
+      t.string :product_price,     null: false
       t.timestamps
     end
   end
