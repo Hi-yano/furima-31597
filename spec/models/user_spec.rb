@@ -7,9 +7,11 @@ describe User do
   describe 'ユーザー新規登録' do
     context '新規登録がうまくいくとき' do
       it 'すべての情報があれば保存ができる' do
-        @user.valid?
+        expect(@user).to be_valid
       end
+    end
 
+    context '新規登録がうまくいかないとき' do
       it 'ニックネームが必須であること' do
         @user.nickname = ''
         @user.valid?
@@ -49,7 +51,7 @@ describe User do
         expect(@user.errors.full_messages).to include('Password is too short (minimum is 6 characters)')
       end
 
-      it 'passwordが半角数字のみの場合は登録できない'　do
+      it 'passwordが半角数字のみの場合は登録できない' do
         @user.password = '000000'
         @user.valid?
         expect(@user.errors.full_messages).to include('Password is invalid')
