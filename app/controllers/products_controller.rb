@@ -23,9 +23,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    if current_user.id == @product.user_id
-      edit_product_path(@product.id)
-    else
+    unless current_user.id == @product.user_id
       render :index
     end
   end
