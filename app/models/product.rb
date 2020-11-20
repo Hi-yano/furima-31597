@@ -4,11 +4,11 @@ class Product < ApplicationRecord
   has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
-    belongs_to :area
-    belongs_to :category
-    belongs_to :postage
-    belongs_to :shipping
-    belongs_to :status
+  belongs_to :area
+  belongs_to :category
+  belongs_to :postage
+  belongs_to :shipping
+  belongs_to :status
   with_options numericality: { other_than: 1 } do
     validates :category_id
     validates :status_id
