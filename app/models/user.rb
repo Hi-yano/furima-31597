@@ -20,7 +20,6 @@ class User < ApplicationRecord
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
   validates_format_of :password, with: PASSWORD_REGEX
 
-  # 下記のアソシエーションはテーブルが作成れてから解除する
   has_many :products
-  # belongs_to :order
+  has_many :orders
 end
