@@ -1,6 +1,6 @@
 class OrderBuyer
   include ActiveModel::Model
-  attr_accessor :prefecture_id, :municipality, :address, :building_name, :phone_number, :postal_code, :user_id, :product_id, :order_id, :token
+  attr_accessor :prefecture_id, :municipality, :address, :building_name, :phone_number, :postal_code, :user_id, :product_id, :token
 
   validates :prefecture_id, numericality: { other_than: 1 }
   with_options presence: true do

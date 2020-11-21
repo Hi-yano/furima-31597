@@ -43,6 +43,6 @@ class OrdersController < ApplicationController
   end
 
   def redirect_current_user
-    redirect_to root_path if current_user
+    redirect_to root_path if current_user.id == @product.user_id
   end
 end
