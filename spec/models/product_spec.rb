@@ -15,17 +15,17 @@ describe Product do
       it '商品画像を1枚つけることが必須であること' do
         @product.image = nil
         @product.valid?
-        expect(@product.errors.full_messages).to include("出品画像を入力してください")
+        expect(@product.errors.full_messages).to include('出品画像を入力してください')
       end
       it '商品名が必須であること' do
         @product.product_name = ''
         @product.valid?
-        expect(@product.errors.full_messages).to include("商品名を入力してください")
+        expect(@product.errors.full_messages).to include('商品名を入力してください')
       end
       it '商品の説明が必須であること' do
         @product.explanation = ''
         @product.valid?
-        expect(@product.errors.full_messages).to include("説明欄を入力してください")
+        expect(@product.errors.full_messages).to include('説明欄を入力してください')
       end
       it 'カテゴリーの情報が必須であること' do
         @product.category_id = ''
@@ -85,7 +85,7 @@ describe Product do
       it '価格についての情報が必須であること' do
         @product.product_price = ''
         @product.valid?
-        expect(@product.errors.full_messages).to include("販売価格を入力してください")
+        expect(@product.errors.full_messages).to include('販売価格を入力してください')
       end
       it '価格の範囲が、¥300以上であること' do
         @product.product_price = 100
