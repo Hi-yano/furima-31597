@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_params, only: [:index, :create]
   before_action :move_to_index, only: :index
+  before_action :redirect_current_user, only: :index
 
   def index
     @order_buyer = OrderBuyer.new
@@ -39,5 +40,9 @@ class OrdersController < ApplicationController
 
   def move_to_index
     redirect_to root_path if @product.order.present?
+  end
+
+  def redirect_current_user
+    redirect_to root_path if current_user
   end
 end

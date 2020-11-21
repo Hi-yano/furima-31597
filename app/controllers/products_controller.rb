@@ -35,7 +35,7 @@ class ProductsController < ApplicationController
       @product.destroy
       redirect_to root_path
     else
-      redirect_to root_path
+      render :index
     end
   end
 
@@ -52,4 +52,5 @@ class ProductsController < ApplicationController
   def move_to_index
     redirect_to action: :index unless user_signed_in?
   end
+
 end
