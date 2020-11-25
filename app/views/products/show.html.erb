@@ -4,7 +4,7 @@
 <div class="item-show">
   <div class="item-box">
     <h2 class="name">
-      <%= "商品名" %>
+      <%= @product.product_name %>
     </h2>
     <div class='item-img-content'>
       <%= image_tag @product.image, class:"item-box-img" %>
@@ -21,7 +21,7 @@
         ¥ <%= @product.product_price %>
       </span>
       <span class="item-postage">
-        <%= '配送料負担' %>
+        <%= @product.postage.name %>
       </span>
     </div>
 
@@ -42,7 +42,7 @@
 
     <%# //ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
     <div class="item-explain-box">
-      <span><%= "商品説明" %></span>
+      <span><%= @product.explanation %></span>
     </div>
     <table class="detail-table">
       <tbody>
