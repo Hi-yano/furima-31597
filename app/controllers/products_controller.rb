@@ -27,7 +27,11 @@ class ProductsController < ApplicationController
   end
 
   def update
-    redirect_to root_path if @product.update(product_params)
+    if @product.update(product_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def destroy
